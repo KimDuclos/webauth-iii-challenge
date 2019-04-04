@@ -3,9 +3,9 @@ import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Users from './components/Users';
+import Login from './components/login';
+import SignUp from './components/signup';
+import Users from './components/users';
 
 class App extends Component {
   render() {
@@ -17,12 +17,12 @@ class App extends Component {
             | Sign In{ '' }
           </NavLink>
           <NavLink to="/signup">| Sign Up |</NavLink>
-          <NavLink to='/Users'> Users |</NavLink>
+          <NavLink to='/users'> Users |</NavLink>
         </header>
       <>
         <Route exact path='/' component={Login} />
-        <Route path='/signUp' component={SignUp} />
-        <Route path='/Users' component={Users} />
+        <Route path='/signup' component={SignUp} />
+        <Route path='/users' component={Users} />
       </>
     </>
     );
