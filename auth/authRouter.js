@@ -1,12 +1,12 @@
-const router = require('express').Router();
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-const db = require('./auth-model');
+const db = require("./authModel");
 
-const secret = require('../api/secrets').jwtSecret; 
-const Users = require('../users/users-model.js');
+const router = express.Router();
+
+const secret = require("../api/secrets").jwtSecrets;
 
 
 // POST - register
@@ -52,7 +52,7 @@ router.post('/login', (req, res) => {
     }
 });
 
-// token
+// token 
 function generateToken(user) {
     const payload = {
         subject: user.id,

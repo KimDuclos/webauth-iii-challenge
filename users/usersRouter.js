@@ -1,13 +1,13 @@
-const router = require('express').Router();
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const secrets = require("../api/secrets");
 
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const secrets = require('../api/secrets');
+const db = require("./usersModel");
 
-const Users = require('./users-model.js');
+const router = express.Router();
 
 // GET
-router.get('/', restricted, (req, res) => {
+router.get('/', restricted, (req, res, next) => {
     db.getAllUsers()
         .then(users => {
             res.status(200).json(users);
